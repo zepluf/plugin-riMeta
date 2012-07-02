@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <name>Simple Object Meta Plugin</name>
+    <summary>Allow assigning multiple metas to any oject type (product, category, page, anything)</summary>
+    <preload>
+        <frontend>true</frontend>
+        <backend>true</backend>
+    </preload>
+    <notes>
+
+    </notes>
+    <authors>
+        <author>
+            <name>RubikIntegration team</name>
+            <email>support@rubikintegration.com</email>
+        </author>
+    </authors>
+    <released>Jun 22nd 2012</released>
+    <release>1.0</release>
+    <license uri="http://www.symfony-project.org/license">MIT license</license>
+    <dependencies>
+        <required>
+            <php>
+                <min>5.3.0</min>
+            </php>
+        </required>
+        <plugins>
+        </plugins>
+    </dependencies>
+    <changelog>
+        <release>
+            <version>
+                <release>1.0.0</release>
+            </version>
+            <license uri="http://www.symfony-project.com/license">MIT license</license>
+            <released>Jun 22nd 2012</released>
+            <notes>
+                * first official release for ZePLUF
+            </notes>
+        </release>
+    </changelog>
+</plugin>
