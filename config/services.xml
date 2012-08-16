@@ -6,6 +6,8 @@
     <services>
     	<service id="riMeta.Meta" class="plugins\riMeta\Meta" scope="prototype">
     	</service>
+        <service id="riMeta.ObjectMetas" class="plugins\riMeta\ObjectMetas" scope="prototype">
+        </service>
         <service id="riMeta.Metas" class="plugins\riMeta\Metas" scope="container">
         </service>              
     </services>

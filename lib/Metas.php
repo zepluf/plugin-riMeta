@@ -10,7 +10,7 @@ namespace plugins\riMeta;
 
 class Metas{
     protected $metas = array();
-    public function findByObjectId($objects_id, $objects_type, $metas_key = ''){
+    public function findByObjectId($objects_id, $objects_type){
 
         $key = $objects_id . '_' . $objects_type;
         if(!isset($this->metas['key'][$key])){
@@ -27,21 +27,10 @@ class Metas{
                     $this->metas['key'][$key][] = $result->fields;
                     $result->MoveNext();
                 }
-                return $this->metas['key'][$key];
             }
         }
 
-        if(empty($metas_key)){
-            return $this->metas['key'][$key];
-        }
-        else{
-            $metas = array();
-            foreach($this->metas['key'][$key] as $meta){
-                if($meta['metas_key'] == $metas_key)
-                    $metas[] = $meta;
-            }
-            return count($metas) > 1 ? $metas : current($metas);
-        }
+        return \plugins\riPlugin\Plugin::get('riMeta.ObjectMetas')->set($this->metas['key'][$key]);
     }
 
     public function findById($metas_id){
@@ -56,6 +45,6 @@ class Metas{
             }
         }
 
-        return $this->metas['id'][$metas_id];
+        return $this->metas['id'][$metas_id] !== false ? \plugins\riPlugin\Plugin::get('riMeta.Meta')->setArray($this->metas['id'][$metas_id]) : false;
     }
 }
