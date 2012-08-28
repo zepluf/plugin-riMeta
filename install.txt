@@ -1,0 +1,8 @@
+add code sau vào your_admin_folder/categories.php
+
+<?php
+  // riedit: bof edit for riMETA
+  $zco_notifier->notify('END_CATEGORIES_ADMIN');
+  // riedit: eof edit for riMETA
+?>
+<?php require(DIR_WS_INCLUDES . 'footer.php'); ?>

@@ -14,7 +14,9 @@ class ObjectMetas{
         $this->metas = $metas;
         return $this;
     }
-
+    public function get(){
+        return $this->metas;
+    }
     public function getByKey($key, $field = 'metas_value'){
         $metas = array();
         foreach($this->metas as $meta)

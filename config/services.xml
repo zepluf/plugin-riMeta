@@ -8,6 +8,8 @@
     	</service>
         <service id="riMeta.ObjectMetas" class="plugins\riMeta\ObjectMetas" scope="prototype">
         </service>
+        <service id="riMeta.Observer" class="plugins\riMeta\Observer" scope="container">
+        </service>
         <service id="riMeta.Metas" class="plugins\riMeta\Metas" scope="container">
         </service>              
     </services>
