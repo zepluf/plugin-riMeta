@@ -10,7 +10,7 @@ namespace plugins\riMeta;
 
 class Metas{
     protected $metas = array();
-    public function findByObjectId($objects_id, $objects_type){
+    public function findByObjectsId($objects_id, $objects_type){
 
         $key = $objects_id . '_' . $objects_type;
         if(!isset($this->metas['key'][$key])){

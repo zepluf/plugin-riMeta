@@ -1,0 +1,8 @@
+routes:
+  metaList:
+    pattern:  /rimeta/meta/list/
+    defaults: { _controller: plugins\riMeta\AdminController::metaListAction }
+  metaAction:
+    pattern:  /rimeta/meta/action/
+    defaults: { _controller: plugins\riMeta\AdminController::metaAction }
+  
