@@ -8,9 +8,10 @@
  */
 namespace plugins\riMeta;
 
-class Metas{
-    protected $metas = array();
-    public function findByObjectId($objects_id, $objects_type){
+class Metas extends \plugins\riCore\Collection{
+    protected $metas = array(), $model_service = 'riMeta.Meta';
+
+    public function findByObjectsId($objects_id, $objects_type){
 
         $key = $objects_id . '_' . $objects_type;
         if(!isset($this->metas['key'][$key])){
@@ -23,7 +24,7 @@ class Metas{
             $this->metas['key'][$key] = array();
             if($result->RecordCount() > 0){
                 while(!$result->EOF){
-                    $this->metas['id'][$result->fields['id']] = $result->fields;
+                    $this->metas['id'][$result->fields['metas_id']] = $result->fields;
                     $this->metas['key'][$key][] = $result->fields;
                     $result->MoveNext();
                 }
@@ -36,7 +37,7 @@ class Metas{
     public function findById($metas_id){
         if(!isset($this->metas['id'][$metas_id])){
             global $db;
-            $sql = "SELECT * FROM " . TABLE_METAS . " WHERE id = :metas_id";
+            $sql = "SELECT * FROM " . TABLE_METAS . " WHERE metas_id = :metas_id";
             $sql = $db->bindVars($sql, ':metas_id', $metas_id, 'integer');
             $result = $db->Execute($sql);
             $this->metas['id'][$metas_id] = false;
@@ -45,6 +46,6 @@ class Metas{
             }
         }
 
-        return $this->metas['id'][$metas_id] !== false ? \plugins\riPlugin\Plugin::get('riMeta.Meta')->setArray($this->metas['id'][$metas_id]) : false;
+        return $this->metas['id'][$metas_id] !== false ? $this->create($this->metas['id'][$metas_id]) : false;
     }
 }

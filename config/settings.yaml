@@ -1,0 +1,8 @@
+routes:
+  list:
+    pattern:  /list/
+    defaults: { _controller: plugins\riMeta\AdminController::listAction }
+  action:
+    pattern:  /action/
+    defaults: { _controller: plugins\riMeta\AdminController::actionAction }
+  

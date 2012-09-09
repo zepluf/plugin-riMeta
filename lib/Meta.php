@@ -9,5 +9,5 @@
 namespace plugins\riMeta;
 
 class Meta extends \plugins\riCore\Model{
-    protected $table = TABLE_METAS, $id = 'id';
+    protected $table = TABLE_METAS, $id = 'metas_id';
 }
