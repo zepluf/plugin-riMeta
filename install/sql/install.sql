@@ -4,5 +4,5 @@ CREATE TABLE IF NOT EXISTS `metas` (
   `objects_type` varchar(32) NOT NULL DEFAULT '',
   `metas_key` varchar(255) NOT NULL DEFAULT '',
   `metas_value` longtext NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`metas_id`)
 ) ENGINE=MyISAM;
